@@ -30,8 +30,7 @@ public class Palindrome {
         if (ogNum == reversedNum) {
             palindrome = true;
         }
-
-        System.out.println("Palindrome: " + palindrome);
+          System.out.println("Palindrome: " + palindrome);
     }
 }
 

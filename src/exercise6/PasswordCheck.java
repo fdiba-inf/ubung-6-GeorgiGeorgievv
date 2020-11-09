@@ -1,34 +1,34 @@
+package exercise6;
+
+import java.util.Scanner;
+
 public class PasswordCheck {
     public static void main(String[] args) {
-
         Scanner input = new Scanner(System.in);
 
-        boolean noSymbols = true;
-        int digitCounter = 0;
-        String password;
-        System.out.print("Enter Password: ");
+        do {
+          String pass = input.next();
+          int a = 0;
+          boolean isValid = false;
 
-        while(noSymbols && digitCounter < 2){
-            if(input.hasNext()) {
-                password = input.next();
-            }else{
-                System.out.println("Shit");
+          if (pass.length() < 8) {
+            isValid = false;
+            continue;
+          } else {
+            for (int i = 0; i < pass.length(); i++) {
+              if (Character.isDigit(pass.charAt(i))) {
+                a++; 
+              }
+              if (!Character.isLetterOrDigit(pass.charAt(i))) {
+                isValid = false;
                 break;
+              }
             }
-            if (password.length() <= 7) {
-                continue;
-            }
-
-            for (int i = 0; i < password.length(); i++) {
-                if(!Character.isLetterOrDigit(password.charAt(i))){
-                    noSymbols = false;
-                }
-                if(Character.isDigit(password.charAt(i))){
-                    digitCounter++;
-                }
-            }
-        }
+          }
+          if (a >= 2) {
+            break;
+          }
+        } while (true);
         System.out.println("Password valid!");
     }
 }
- 
